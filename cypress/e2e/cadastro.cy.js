@@ -29,6 +29,7 @@ describe("Página de Cadastro", () => {
   it("Deve exibir erro ao tentar cadastrar com um e-mail já existente", () => {
     cy.cadastroEmailExistente();
     cy.get('[data-test="submit-button"]').should("be.visible").click();
+    cy.wait(1000); // Aguarda 1 segundo antes de verificar a resposta
     cy.contains("Falha ao cadastrar!").should("be.visible");
-  });
+});
 });
